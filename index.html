@@ -13,10 +13,6 @@
 <script>
 
 window.ondevicemotion = function(event) {
-	const ax = event.accelerationIncludingGravity.x
-	const ay = event.accelerationIncludingGravity.y
-	const az = event.accelerationIncludingGravity.z
-
 	document.querySelector("#x_acc").innerHTML = "X = " + ax;
 	document.querySelector("#y_acc").innerHTML = "Y = " + ay;
 	document.querySelector("#z_acc").innerHTML = "Z = " + az;
