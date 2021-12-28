@@ -1,12 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Geo</title>
-
-</head>
+<html lang="de">
 <body>
-    <p id="alpha"></p>
-    <script src="compass.js"></script>
+
+<br />
+
+<p id="mag_alpha">No magnetometer found.</p>
+<p id="mag_beta"></p>
+<p id="mag_gamma"></p>
+
+
+
+<script>
+
+window.ondevicemotion = function(event) {
+	const ax = event.accelerationIncludingGravity.x
+	const ay = event.accelerationIncludingGravity.y
+	const az = event.accelerationIncludingGravity.z
+
+	document.querySelector("#x_acc").innerHTML = "X = " + ax;
+	document.querySelector("#y_acc").innerHTML = "Y = " + ay;
+	document.querySelector("#z_acc").innerHTML = "Z = " + az;
+}
+
+window.addEventListener("deviceorientationabsolute", function(event) {
+	document.querySelector("#mag_alpha").innerHTML = "alpha = " + event.alpha;
+	document.querySelector("#mag_beta").innerHTML = "beta = " + event.beta;
+	document.querySelector("#mag_gamma").innerHTML = "gamma = " + event.gamma;
+}, true);
+
+</script>
+
 </body>
 </html>

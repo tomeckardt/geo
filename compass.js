@@ -8,7 +8,8 @@ let paragraph = document.getElementById("alpha")
 if (isIOS) {
     paragraph.innerHTML = "Apple Fanboy"
 } else {
-    window.addEventListener("deviceorientationabsolute", function(event) {
+    paragraph.innerHTML = "Hey"
+    window.addEventListener("deviceorientation", function(event) {
         paragraph.innerHTML = event.alpha.toString()
     }, true)
 }
