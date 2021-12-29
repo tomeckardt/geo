@@ -9,11 +9,7 @@ document.querySelector("#mag_beta").innerHTML = navigator.userAgent.toString()
 
 //iOS
 if (typeof DeviceMotionEvent.requestPermission === 'function') {
-    DeviceMotionEvent.requestPermission().then(permissionState => {
-        if (permissionState === 'granted') {
-            window.addEventListener('deviceorientation', event => update(event))
-        }
-    })
+    document.querySelector("#permission_btn").onclick = handleButtonOniOS()
 }
 //Firefox
 else if (isAndroidFirefox) {
@@ -29,4 +25,18 @@ else {
 
 function update(orientation) {
     paragraph.innerHTML = orientation.toString()
+}
+
+function handleButton() {
+
+}
+
+function handleButtonOniOS() {
+    DeviceMotionEvent.requestPermission().then(permissionState => {
+        if (permissionState === 'granted') {
+            window.addEventListener('deviceorientation', event => update(event))
+            handleButton()
+        }
+    })
+
 }
