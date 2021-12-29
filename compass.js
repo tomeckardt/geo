@@ -8,7 +8,7 @@ console.log(paragraph)
 document.querySelector("#mag_beta").innerHTML = navigator.userAgent.toString()
 
 //iOS
-if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+if (typeof DeviceMotionEvent.requestPermission === 'function') {
     DeviceOrientationEvent.requestPermission().then(permissionState => {
         if (permissionState === 'granted') {
             window.addEventListener('deviceorientation', event => update(event))
