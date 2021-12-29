@@ -1,10 +1,6 @@
 console.log("Test")
-<<<<<<< HEAD
 const isIOS = navigator.userAgent.match(/AppleWebKit/) &&
     !navigator.userAgent.match(/Android/)
-=======
-const isIOS = navigator.userAgent.match(/AppleWebKit/)
->>>>>>> main
 const isAndroidFirefox = navigator.userAgent.match(/Firefox/) &&
     navigator.userAgent.match(/Android/)
 
