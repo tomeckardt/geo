@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
 <body>
 
 <br />
@@ -9,14 +13,6 @@
 <p id="mag_gamma"></p>
 
 
-<script src="https://github.com/adtile/Full-Tilt/blob/master/dist/fulltilt.min.js"></script>
-<script>
-    window.addEventListener("deviceorientation", function(event) {
-        if (event.webkitCompassHeading) {
-            document.querySelector("#mag_alpha").innerHTML = event.webkitCompassHeading;
-        }
-    })
-</script>
-
+<script src="compass.js"></script>
 </body>
 </html>
