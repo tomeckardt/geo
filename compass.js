@@ -1,11 +1,7 @@
-console.log("Test")
 const isAndroidFirefox = navigator.userAgent.match(/Firefox/) &&
     navigator.userAgent.match(/Android/)
 
-
-let paragraph = document.querySelector("#mag_alpha")
-console.log(paragraph)
-document.querySelector("#mag_beta").innerHTML = navigator.userAgent.toString()
+let compass = document.querySelector("#compass")
 
 //iOS
 if (typeof DeviceMotionEvent.requestPermission === 'function') {
@@ -24,11 +20,11 @@ else {
 }
 
 function update(orientation) {
-    paragraph.innerHTML = orientation.toString()
+    compass.setAttribute("transform", "rotate(" + orientation + " 50 50")
 }
 
 function handleButton() {
-    document.querySelector("#mag_gamma").innerHTML = "Yeah"
+
 }
 
 function handleButtonOniOS() {
