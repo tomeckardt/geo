@@ -9,7 +9,7 @@ document.querySelector("#mag_beta").innerHTML = navigator.userAgent.toString()
 
 //iOS
 if (typeof DeviceMotionEvent.requestPermission === 'function') {
-    document.querySelector("#permission_btn").onclick = handleButtonOniOS()
+    document.querySelector("#permission_btn").setAttribute("onclick", "handleButtonOniOS()")
 }
 //Firefox
 else if (isAndroidFirefox) {
@@ -28,7 +28,7 @@ function update(orientation) {
 }
 
 function handleButton() {
-
+    document.querySelector("#mag_gamma").innerHTML = "Yeah"
 }
 
 function handleButtonOniOS() {
