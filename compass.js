@@ -34,7 +34,7 @@ function handleButton() {
 function handleButtonOniOS() {
     DeviceMotionEvent.requestPermission().then(permissionState => {
         if (permissionState === 'granted') {
-            window.addEventListener('deviceorientation', event => update(event))
+            window.addEventListener('deviceorientation', event => update(event.webkitCompassHeading))
             handleButton()
         }
     })
