@@ -24,7 +24,14 @@ function update(orientation) {
 }
 
 function handleButton() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+            console.log(position.coords)
+            document.querySelector("#mainContent").innerHTML = "<canvas id='canvas'><canvas>"
+        }, () => {
 
+        })
+    }
 }
 
 function handleButtonOniOS() {

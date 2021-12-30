@@ -1,24 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <script src="compass.js"></script>
-    <nav id="topnav">
-        <button id="permission_btn" onclick="handleButton()">Sensordaten</button>
-        <div id="compass_div">
-            <svg id="compass" preserveAspectRatio="xMidYMid meet" viewBox="0 0 100 100">
-            <circle cx="50%" cy="50%" r="40%" stroke="black" fill="white"></circle>
-            <polygon points="50,75 60,50 40,50" stroke="black" fill="rgb(180,180,180)"></polygon>
-            <polygon points="50,25 60,50 40,50" stroke="black" fill="red"></polygon>
-            </svg>
-        </div>
 
-    </nav>
-    <canvas id ="canvas"></canvas>
-    <p id="score">Score:</p>
+    <div id="content">
+        <div class="bar top">
+            <p onclick="console.log('Hey')">Keine Sensordaten</p>
+        </div>
+        <!--<img src="map.png" alt="" class="map">-->
+        <div id="mainContent">
+            <button onclick="handleButton()">
+                Sensordaten übergeben
+            </button>
+        </div>
+        <div class="bar bottom">
+            <p>Score: 0</p>
+        </div>
+    </div>
 </body>
 </html>

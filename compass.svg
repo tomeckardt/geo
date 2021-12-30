@@ -1,0 +1,5 @@
+<svg id="compass" preserveAspectRatio="xMidYMid meet" viewBox="0 0 100 100">
+        <circle cx="50%" cy="50%" r="40%" stroke="black" fill="white"></circle>
+        <polygon points="50,75 60,50 40,50" stroke="black" fill="rgb(180,180,180)"></polygon>
+        <polygon points="50,25 60,50 40,50" stroke="black" fill="red"></polygon>
+        </svg>
