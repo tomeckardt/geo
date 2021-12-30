@@ -7,8 +7,14 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+    <!-- Skripte -->
+    <script type="module">
+        import LatLon from 'https://cdn.jsdelivr.net/npm/geodesy@2/latlon-spherical.min.js'
+    </script>
     <script src="compass.js"></script>
+    <script src="city_controller.js"></script>
 
+    <!-- Content -->
     <div id="content">
         <div class="bar top">
             <p onclick="console.log('Hey')">Keine Sensordaten</p>

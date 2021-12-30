@@ -26,8 +26,8 @@ function update(orientation) {
 function handleButton() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
-            console.log(position.coords)
-            document.querySelector("#mainContent").innerHTML = "<canvas id='canvas'><canvas>"
+            init(position.coords.latitude, position.coords.longitude)
+            //document.querySelector("#mainContent").innerHTML = "<canvas id='canvas'><canvas>"
         }, () => {
 
         })
