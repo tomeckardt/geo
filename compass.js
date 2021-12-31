@@ -67,10 +67,10 @@ function update(orientation) {
     if (locationKnown && orientationKnown) {
         let city = nearestBinarySearch(360 - orientation)
         document.querySelector('#cityname').innerHTML = city.asciiname
-        compass.style.mozTransform    = 'rotate('+orientation+'deg)';
-        compass.style.msTransform     = 'rotate('+orientation+'deg)';
-        compass.style.oTransform      = 'rotate('+orientation+'deg)';
-        compass.style.transform       = 'rotate('+orientation+'deg)';
+        compass.style.mozTransform    = 'rotate(-'+orientation+'deg)';
+        compass.style.msTransform     = 'rotate(-'+orientation+'deg)';
+        compass.style.oTransform      = 'rotate(-'+orientation+'deg)';
+        compass.style.transform       = 'rotate(-'+orientation+'deg)';
     } else {
         //TODO
     }
