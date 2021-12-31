@@ -23,21 +23,8 @@ Button initialisieren
 */
 document.querySelector("#permission_btn").onclick = init;
 async function init() {
-    if (isSafari) {
-        await DeviceMotionEvent.requestPermission().then(permissionState => {
-            if (permissionState === 'granted') {
-                window.addEventListener('deviceorientation', event => update(event.webkitCompassHeading))
-            }
-        })
-    } if (isAndroidFirefox) {
-        //TODO
-    } else {
-        window.addEventListener("deviceorientationabsolute", function (event) {
-            update(event.alpha)
-        }, true)
-    }
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((position) => {
+        navigator.geolocation.getCurrentPosition(async (position) => {
             const lat = position.coords.latitude
             const lon = position.coords.longitude
             const pos = LatLon.parse(lat, lon)
@@ -48,7 +35,24 @@ async function init() {
             })
             data.sort((e1, e2) => e1.relAngle - e2.relAngle)
             document.querySelector("#mainContent").innerHTML = "<p id='cityname'></p>"
-        }, () => {
+            document.querySelector('#cityname').innerHTML="Test"
+
+            if (isSafari) {
+                await DeviceMotionEvent.requestPermission().then(permissionState => {
+                    if (permissionState === 'granted') {
+                        window.addEventListener('deviceorientation', event => update(event.webkitCompassHeading))
+                    }
+                })
+            } else if (isAndroidFirefox) {
+                //TODO
+            } else {
+                window.addEventListener("deviceorientationabsolute", function (event) {
+                    update(event.alpha)
+                }, true)
+            }
+        },
+
+        () => {
             console.error("Hilfe :(")
         })
     }
@@ -56,7 +60,7 @@ async function init() {
 
 function update(orientation) {
     let city = nearestBinarySearch(orientation)
-    document.querySelector("#cityname").innerHTML = city.name
+    document.querySelector('#cityname').innerHTML = city.name
 }
 
 function getRandomCity() {
