@@ -66,6 +66,7 @@ function update(orientation) {
     if (locationKnown && orientationKnown) {
         let city = nearestBinarySearch(360-orientation)
         document.querySelector('#cityname').innerHTML = city.asciiname
+        document.querySelector('#compass').style.transform = "rotate(" + orientation + "deg);"
     } else {
     }
 }
