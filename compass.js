@@ -64,7 +64,7 @@ async function init() {
 
 function update(orientation) {
     if (locationKnown && orientationKnown) {
-        let city = nearestBinarySearch(orientation)
+        let city = nearestBinarySearch(360-orientation)
         document.querySelector('#cityname').innerHTML = city.asciiname
     } else {
     }
