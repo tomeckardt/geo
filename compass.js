@@ -65,8 +65,7 @@ async function init() {
 const compass = document.querySelector('#compass')
 function update(orientation) {
     if (locationKnown && orientationKnown) {
-        orientation = 360-orientation
-        let city = nearestBinarySearch(orientation)
+        let city = nearestBinarySearch(360 - orientation)
         document.querySelector('#cityname').innerHTML = city.asciiname
         compass.style.mozTransform    = 'rotate('+orientation+'deg)';
         compass.style.msTransform     = 'rotate('+orientation+'deg)';
