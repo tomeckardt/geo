@@ -8,6 +8,7 @@ loadData().then(() => console.log("Daten geladen"))
 async function loadData() {
     const promise = await fetch("data.json")
     data = await promise.json()
+    initGeoLocation()
 }
 
 /*
@@ -24,7 +25,8 @@ Button initialisieren
 let locationKnown = false, orientationKnown = false
 
 document.querySelector("#permission_btn").onclick = init;
-async function init() {
+
+function initGeoLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(async (position) => {
             const lat = position.coords.latitude
@@ -37,29 +39,35 @@ async function init() {
             })
             data.sort((e1, e2) => e1.relAngle - e2.relAngle)
             locationKnown = true
-            document.querySelector("#mainContent").innerHTML = "<p id='cityname'></p>"
-
-            if (isSafari) {
-                await DeviceMotionEvent.requestPermission().then(permissionState => {
-                    if (permissionState === 'granted') {
-                        orientationKnown = true
-                        window.addEventListener('deviceorientation', event => update(event.webkitCompassHeading))
-                    }
-                })
-            } else if (isAndroidFirefox) {
-                //TODO
-            } else {
-                orientationKnown = true
-                window.addEventListener("deviceorientationabsolute", function (event) {
-                    update(event.alpha)
-                }, true)
-            }
         },
-
-        () => {
-            document.querySelector("#mainContent").innerHTML = "<p id='cityname'>Hmmm</p>"
+            () => {
+            document.querySelector("#mainContent").innerHTML = "Oh, das ist schon okay..."
         })
     }
+}
+
+async function init() {
+    if (isSafari) {
+        await DeviceMotionEvent.requestPermission().then(permissionState => {
+            if (permissionState === 'granted') {
+                orientationKnown = true
+                initGame()
+                window.addEventListener('deviceorientation', event => update(event.webkitCompassHeading))
+            }
+        })
+    } else if (isAndroidFirefox) {
+        //TODO
+    } else {
+        orientationKnown = true
+        window.addEventListener("deviceorientationabsolute", function (event) {
+            initGame()
+            update(event.alpha)
+        }, true)
+    }
+}
+
+function initGame() {
+    document.querySelector("#mainContent").innerHTML = "<p id='cityname'></p><p id='citydistance'></p>"
 }
 
 const compass = document.querySelector('#compass')
