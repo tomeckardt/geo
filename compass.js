@@ -53,7 +53,7 @@ async function init() {
         },
 
         () => {
-            console.error("Hilfe :(")
+            document.querySelector("#mainContent").innerHTML = "<p id='Hmmm'></p>"
         })
     }
 }
