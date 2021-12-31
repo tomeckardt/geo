@@ -5,14 +5,10 @@
     <meta content="width=device-width, initial-scale=1.0">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="module" src="compass.js"></script>
 </head>
 <body>
     <!-- Skripte -->
-    <script type="module">
-        import LatLon from 'https://cdn.jsdelivr.net/npm/geodesy@2/latlon-spherical.min.js'
-    </script>
-    <script src="compass.js"></script>
-    <script src="city_controller.js"></script>
 
     <!-- Content -->
     <div id="content">
@@ -21,9 +17,7 @@
         </div>
         <!--<img src="map.png" alt="" class="map">-->
         <div id="mainContent">
-            <button onclick="handleButton()">
-                Sensordaten übergeben
-            </button>
+            <button id="permission_btn">Sensordaten übergeben</button>
         </div>
         <div class="bar bottom">
             <p>Score: 0</p>
