@@ -54,7 +54,7 @@ async function init() {
         window.addEventListener("deviceorientationabsolute", function (event) {
             if (event.alpha != null) {
                 initGame()
-                update(event.alpha)
+                update(360 - event.alpha)
             }
         }, true)
         document.querySelector(".main_content").innerHTML = "Dein Browser unterstützt keinen Kompass"
@@ -69,9 +69,9 @@ const compass = document.querySelector('#compass')
 let lastOrientation = 0
 function update(orientation) {
     if (locationKnown && orientationKnown) {
-        let city = nearestBinarySearch(360 - orientation)
+        let city = nearestBinarySearch(orientation)
         document.querySelector('#cityname').innerHTML = city.asciiname
-        let deg = orientation - lastOrientation
+        let deg = lastOrientation - orientation
         compass.style.mozTransform    = 'rotate('+deg+'deg)';
         compass.style.msTransform     = 'rotate('+deg+'deg)';
         compass.style.oTransform      = 'rotate('+deg+'deg)';
