@@ -45,18 +45,17 @@ async function init() {
                 orientationKnown = true
                 initGame()
                 window.addEventListener('deviceorientation', event => {
-                    let orientation = event.webkitCompassHeading - 90
-                    update(orientation < 0 ? orientation + 360 : orientation)
+                    let orientation = event.webkitCompassHeading + 90
+                    update(orientation % 360)
                 })
             }
         })
-    } else if (window.ondeviceorientationabsolute) {//Chrome
+    } else {//Chrome
         orientationKnown = true
         window.addEventListener("deviceorientationabsolute", function (event) {
             initGame()
             update(event.alpha)
         }, true)
-    } else {
         document.querySelector("#mainContent").innerHTML = "Dein Browser unterstützt keinen Kompass"
     }
 }
