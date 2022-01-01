@@ -45,8 +45,9 @@ async function init() {
                 orientationKnown = true
                 initGame()
                 window.addEventListener('deviceorientation', event => {
-                    let orientation = event.webkitCompassHeading + 90
-                    update(orientation % 360)
+                    let orientation = event.webkitCompassHeading
+                    //update(orientation % 360)
+                    document.querySelector('#cityname').innerHTML = orientation
                 })
             }
         })
