@@ -12,14 +12,6 @@ async function loadData() {
 }
 
 /*
-Browserinformationen
- */
-const isAndroidFirefox = navigator.userAgent.match(/Firefox/) &&
-    navigator.userAgent.match(/Android/)
-
-const isSafari = DeviceMotionEvent.requestPermission !== undefined
-
-/*
 Button initialisieren
 */
 let locationKnown = false, orientationKnown = false
@@ -47,22 +39,25 @@ function initGeoLocation() {
 }
 
 async function init() {
-    if (isSafari) {
+    if (DeviceMotionEvent.requestPermission !== undefined) { //Safari
         await DeviceMotionEvent.requestPermission().then(permissionState => {
             if (permissionState === 'granted') {
                 orientationKnown = true
                 initGame()
-                window.addEventListener('deviceorientation', event => update(event.webkitCompassHeading))
+                window.addEventListener('deviceorientation', event => {
+                    let orientation = event.webkitCompassHeading - 90
+                    update(orientation < 0 ? orientation + 360 : orientation)
+                })
             }
         })
-    } else if (isAndroidFirefox) {
-        //TODO
-    } else {
+    } else if (window.ondeviceorientationabsolute) {//Chrome
         orientationKnown = true
         window.addEventListener("deviceorientationabsolute", function (event) {
             initGame()
             update(event.alpha)
         }, true)
+    } else {
+        document.querySelector("#mainContent").innerHTML = "Dein Browser unterstützt keinen Kompass"
     }
 }
 
