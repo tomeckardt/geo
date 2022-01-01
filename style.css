@@ -1,49 +1,52 @@
 :root {
-    --std-font-size: 2em;
-    --std-font-family: Roboto, serif;
+    --font: 1.5em Roboto, serif;
 }
 
 html, body {
-    margin: 0;
     height: 100%;
-    overflow: hidden;
-    font-family: var(--std-font-family)
-}
-
-div {
     margin: 0;
     text-align: center;
-    font-size: var(--std-font-size);
+    font: var(--font)
 }
 
-#content {
-    height: 100%;
+.content {
     display: flex;
-    flex-direction: column;
+    flex-flow: column;
+    height: 100%;
 }
 
-#mainContent {
-    height: 100%;
+.content .row.header {
+    flex: 0 1 auto;
+}
+
+.content .row.main_content {
+    flex: 1 1 auto;
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    flex-direction: column;
 }
 
-.bar {
-    height: 3em;
-    float: top;
+.content .row.compass_div {
+    flex: 0 1 auto;
 }
 
-button {
-    text-align: center;
-    font-family: var(--std-font-family);
-    font-size: var(--std-font-family);
-    background-color: darkblue;
+#btn_container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#permission_btn {
+    font: var(--font);
+    background-color: midnightblue;
+    margin: 30px;
+    padding: 30px;
+    border-radius: 30px;
     color: white;
-    border: 1px solid;
-    padding: 8px;
 }
 
-button:hover {
-    background-color: cornflowerblue;
+@media(orientation: landscape) {
+    html, body {
+        font-size: 1em;
+    }
 }

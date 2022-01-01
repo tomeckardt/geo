@@ -11,20 +11,22 @@
     <!-- Skripte -->
 
     <!-- Content -->
-    <div id="content">
-        <header><h1>Städtekompass</h1></header>
-        <!--<img src="map.png" alt="" class="map">-->
-        <div id="mainContent">
-            <button id="permission_btn">Sensordaten übergeben</button>
-        </div>
-        <div>
-            <svg width="200" height="200" viewBox="0 0 100 100" id="compass">
-                <circle cx="50" cy="50" r="45" fill="lightblue" stroke="black"></circle>
-                <polygon points="50,10 40,50 60,50" fill="red" stroke="black"></polygon>
-                <polygon points="50,90 40,50 60,50" fill="silver" stroke="black"></polygon>
-            </svg>
-
-        </div>
+    <div class="content">
+          <header class="row header">
+              <h1>Städtekompass</h1>
+          </header>
+          <div class="row main_content">
+              <div id="btn_container">
+                  <button id="permission_btn">Starten</button>
+              </div>
+          </div>
+          <div class="row compass_div">
+              <svg width="200" height="200" viewBox="0 0 100 100" id="compass">
+                  <circle cx="50" cy="50" r="45" fill="lightblue" stroke="black"></circle>
+                  <polygon points="50,10 40,50 60,50" fill="red" stroke="black"></polygon>
+                  <polygon points="50,90 40,50 60,50" fill="silver" stroke="black"></polygon>
+              </svg>
+          </div>
     </div>
 </body>
 </html>

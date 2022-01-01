@@ -33,7 +33,7 @@ function initGeoLocation() {
             locationKnown = true
         },
             () => {
-            document.querySelector("#mainContent").innerHTML = "Oh, das ist schon okay..."
+            document.querySelector(".main_content").innerHTML = "Oh, das ist schon okay..."
         })
     }
 }
@@ -45,24 +45,24 @@ async function init() {
                 orientationKnown = true
                 initGame()
                 window.addEventListener('deviceorientation', event => {
-                    let orientation = event.webkitCompassHeading
-                    //update(orientation % 360)
-                    document.querySelector('#cityname').innerHTML = orientation
+                    update(event.webkitCompassHeading)
                 })
             }
         })
     } else {//Chrome
         orientationKnown = true
         window.addEventListener("deviceorientationabsolute", function (event) {
-            initGame()
-            update(event.alpha)
+            if (event.alpha != null) {
+                initGame()
+                update(event.alpha)
+            }
         }, true)
-        document.querySelector("#mainContent").innerHTML = "Dein Browser unterstützt keinen Kompass"
+        document.querySelector(".main_content").innerHTML = "Dein Browser unterstützt keinen Kompass"
     }
 }
 
 function initGame() {
-    document.querySelector("#mainContent").innerHTML = "<p id='cityname'></p><p id='citydistance'></p>"
+    document.querySelector(".main_content").innerHTML = "<p id='cityname'></p><p id='citydistance'></p>"
 }
 
 const compass = document.querySelector('#compass')
