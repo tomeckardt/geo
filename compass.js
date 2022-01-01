@@ -27,7 +27,7 @@ function initGeoLocation() {
             data.forEach(e => {
                 const p = LatLon.parse(e.latitude, e.longitude)
                 e.relAngle = pos.initialBearingTo(p)
-                e.relDistance = pos.distanceTo(p)
+                e.relDistance = Math.round(pos.distanceTo(p))
             })
             data.sort((e1, e2) => e1.relAngle - e2.relAngle)
             locationKnown = true
@@ -62,7 +62,10 @@ async function init() {
 }
 
 function initGame() {
-    document.querySelector(".main_content").innerHTML = "<p id='cityname'></p><p id='citydistance'></p>"
+    document.querySelector(".main_content").innerHTML =
+        `<p id='cityname'></p>
+        <p class='citydata'>Distanz:</p>
+        <p class='citydata' id='citydistance'></p>`
 }
 
 const compass = document.querySelector('#compass')

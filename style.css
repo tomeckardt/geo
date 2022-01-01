@@ -45,6 +45,11 @@ html, body {
     color: white;
 }
 
+.citydata {
+    color: slategray;
+    font-size: 1em;
+}
+
 @media(orientation: landscape) {
     html, body {
         font-size: 1em;
