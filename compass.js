@@ -27,13 +27,13 @@ function initGeoLocation() {
             data.forEach(e => {
                 const p = LatLon.parse(e.latitude, e.longitude)
                 e.relAngle = pos.initialBearingTo(p)
-                e.relDistance = Math.round(pos.distanceTo(p))
+                e.relDistance = Math.round(pos.distanceTo(p) / 1000)
             })
             data.sort((e1, e2) => e1.relAngle - e2.relAngle)
             locationKnown = true
         },
             () => {
-            document.querySelector(".main_content").innerHTML = "Oh, das ist schon okay..."
+            document.querySelector(".main_content").innerHTML = "Deine Standortdaten werden benötigt"
         })
     }
 }
@@ -71,8 +71,8 @@ function update(orientation) {
     if (locationKnown && orientationKnown) {
         let city = nearestBinarySearch(orientation)
         document.querySelector("#cityname").innerHTML = city.asciiname
-        document.querySelector("#citydistance").innerHTML = "Distanz:<br>" + city.relDistance + "km"
-        let deg = lastOrientation - orientation
+        document.querySelector("#citydistance").innerHTML = "Distanz:<br>" + city.relDistance.toLocaleString() + "km"
+        let deg = lastOrientation - orientation - screen.orientation.angle
         compass.style.mozTransform    = 'rotate('+deg+'deg)';
         compass.style.msTransform     = 'rotate('+deg+'deg)';
         compass.style.oTransform      = 'rotate('+deg+'deg)';
