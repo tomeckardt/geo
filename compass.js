@@ -66,13 +66,12 @@ function initGame() {
 }
 
 const compass = document.querySelector('#compass')
-let lastOrientation = 0
 function update(orientation) {
     if (locationKnown && orientationKnown) {
         let city = nearestBinarySearch(orientation)
         document.querySelector("#cityname").innerHTML = city.asciiname
         document.querySelector("#citydistance").innerHTML = "Distanz:<br>" + city.relDistance.toLocaleString() + "km"
-        let deg = lastOrientation - orientation - screen.orientation.angle
+        let deg = - orientation - screen.orientation.angle
         compass.style.mozTransform    = 'rotate('+deg+'deg)';
         compass.style.msTransform     = 'rotate('+deg+'deg)';
         compass.style.oTransform      = 'rotate('+deg+'deg)';
