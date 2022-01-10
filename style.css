@@ -6,7 +6,8 @@ html, body {
     height: 100%;
     margin: 0;
     text-align: center;
-    font: var(--font)
+    font: var(--font);
+    color: white;
 }
 
 .content {
@@ -15,8 +16,8 @@ html, body {
     height: 100%;
 }
 
-.content .row.header {
-    flex: 0 1 auto;
+.header {
+    background: #374785;
 }
 
 .content .row.main_content {
@@ -24,6 +25,7 @@ html, body {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    color: #374785;
 }
 
 .content .row.compass_div {
@@ -38,11 +40,15 @@ html, body {
 
 #permission_btn {
     font: var(--font);
-    background-color: midnightblue;
-    margin: 30px;
-    padding: 30px;
-    border-radius: 30px;
+    background-color: #374785;
+    padding: 30px 60px;
+    border-width: 0;
+    border-radius: 10px;
     color: white;
+}
+#permission_btn:hover {
+    background-color: #A8D0E6;
+    color: #374785;
 }
 
 .citydata {
