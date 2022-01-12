@@ -71,7 +71,7 @@ function update(orientation) {
         let city = nearestBinarySearch(orientation)
         document.querySelector("#cityname").innerHTML = city.asciiname
         document.querySelector("#citydistance").innerHTML = "Distanz:<br>" + city.relDistance.toLocaleString() + "km"
-        let deg = - orientation - screen.orientation.angle
+        let deg = - orientation
         compass.style.mozTransform    = 'rotate('+deg+'deg)';
         compass.style.msTransform     = 'rotate('+deg+'deg)';
         compass.style.oTransform      = 'rotate('+deg+'deg)';

@@ -1,12 +1,12 @@
 :root {
-    --font: 1.5em Roboto, serif;
+    --font-family: 'Roboto', sans-serif
 }
 
 html, body {
     height: 100%;
     margin: 0;
     text-align: center;
-    font: var(--font);
+    font-family: var(--font-family);
     color: white;
 }
 
@@ -18,6 +18,8 @@ html, body {
 
 .header {
     background: #374785;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .content .row.main_content {
@@ -38,18 +40,25 @@ html, body {
     flex-direction: row;
 }
 
-#permission_btn {
-    font: var(--font);
+button {
     background-color: #374785;
-    padding: 30px 60px;
-    border-width: 0;
-    border-radius: 10px;
     color: white;
+    border-width: 0;
+    padding: 15px 30px;
+    border-radius: 10px;
 }
-#permission_btn:hover {
+
+button:hover {
     background-color: #A8D0E6;
     color: #374785;
 }
+
+#permission_btn {
+    font-family: var(--font-family);
+    font-size: 1.5em;
+    padding: 30px 60px;
+}
+
 
 .citydata {
     color: slategray;

@@ -8,27 +8,37 @@
     <script type="module" src="compass.js"></script>
 </head>
 <body>
-    <!-- Skripte -->
-
     <!-- Content -->
     <div class="content">
-          <header class="row header">
-              <h1>Städtekompass</h1>
-          </header>
-          <div class="row main_content">
-              <div id="btn_container">
-                  <button id="permission_btn">Starten</button>
-              </div>
-          </div>
-          <div class="row compass_div">
-              <svg width="200" height="200" viewBox="0 0 100 100" id="compass">
-                  <g stroke="black" stroke-linejoin="round">
-                      <circle cx="50" cy="50" r="45" fill="#A8D0E6"></circle>
-                      <polygon points="50,10 40,50 60,50" fill="#F07167"></polygon>
-                      <polygon points="50,90 40,50 60,50" fill="silver"></polygon>
-                  </g>
-              </svg>
-          </div>
+        <header class="row header">
+            <h1>Städtekompass</h1>
+        </header>
+        <div class="popup">
+            <h3>Kompassrichtung</h3>
+            <label style="margin: 10px">
+                Breitengrad
+                <input type="number" min="-90" max="90" value="90" id="latitude" required>
+            </label>
+            <label style="margin: 10px">
+                Längengrad
+                <input type="number" min="-180" max="180" value="0" id="longitude" required>
+            </label>
+            <button>Anwenden</button>
+        </div>
+        <div class="row main_content">
+            <div id="btn_container">
+                <button id="permission_btn">Starten</button>
+            </div>
+        </div>
+        <div class="row compass_div">
+            <svg width="200" height="200" viewBox="0 0 100 100" id="compass">
+                <g stroke="black" stroke-linejoin="round">
+                    <circle cx="50" cy="50" r="45" fill="#A8D0E6"></circle>
+                    <polygon points="50,10 40,50 60,50" fill="#F07167"></polygon>
+                    <polygon points="50,90 40,50 60,50" fill="silver"></polygon>
+                </g>
+            </svg>
+        </div>
     </div>
 </body>
 </html>
