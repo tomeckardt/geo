@@ -33,12 +33,21 @@ function initGeoLocation() {
             locationKnown = true
         },
             () => {
-            document.querySelector(".main_content").innerHTML = "Deine Standortdaten werden benötigt"
+            document.querySelector(".main_content").innerHTML =
+                `<h2 >Kein Zugriff auf deine Standortdaten</h2>
+                 <p>Ohne den Standort funktioniert die Seite nicht</p>
+                `
         })
     }
 }
 
 async function init() {
+    function noCompass() {
+        document.querySelector(".main_content").innerHTML =
+            `<h2>Kein Zugriff auf deinen Kompass</h2>
+             <p>Die Daten deines Kompass werden benötigt. Bist du auf einem mobilen Endgerät, das einen Kompass unterstützt?</p>
+            `
+    }
     if (DeviceMotionEvent.requestPermission !== undefined) { //Safari
         await DeviceMotionEvent.requestPermission().then(permissionState => {
             if (permissionState === 'granted') {
@@ -47,17 +56,23 @@ async function init() {
                 window.addEventListener('deviceorientation', event => {
                     update(event.webkitCompassHeading)
                 })
+            } else {
+                noCompass()
             }
         })
     } else {//Chrome
         orientationKnown = true
+        let hasStarted = false;
         window.addEventListener("deviceorientationabsolute", function (event) {
             if (event.alpha != null) {
-                initGame()
+                if (!hasStarted) {
+                    initGame()
+                    hasStarted = true
+                }
                 update(360 - event.alpha)
             }
         }, true)
-        document.querySelector(".main_content").innerHTML = "Dein Browser unterstützt keinen Kompass"
+        noCompass()
     }
 }
 
