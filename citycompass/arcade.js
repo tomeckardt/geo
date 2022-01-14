@@ -44,7 +44,7 @@ async function init() {
         document.querySelector('#score').innerHTML = "Kein Zugriff auf deinen Kompass"
         document.querySelector('#cityname').innerHTML =
             "Die Daten deines Kompass werden benötigt. Bist du auf einem mobilen Endgerät, das einen Kompass unterstützt?"
-        document.querySelector('#permission_btn').hide()
+        document.querySelector('#permission_btn').style.display = "hide"
     }
     if (DeviceMotionEvent.requestPermission !== undefined) { //Safari
         await DeviceMotionEvent.requestPermission().then(permissionState => {
@@ -76,7 +76,7 @@ function initGame() {
     let scoreText = document.querySelector('#score')
     scoreText.innerHTML = "Score: 0"
     let button = document.querySelector('#permission_btn')
-    button.show()
+    button.style.display = "block"
     let cityText = document.querySelector('#cityname')
     let city = getRandomCity()
     cityText.innerHTML = city.asciiname
