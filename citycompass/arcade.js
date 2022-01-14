@@ -6,7 +6,7 @@ Städte laden
 let data
 loadData().then(() => console.log("Daten geladen"))
 async function loadData() {
-    const promise = await fetch("data.json")
+    const promise = await fetch("../data.json")
     data = await promise.json()
     initGeoLocation()
 }
@@ -41,10 +41,10 @@ function initGeoLocation() {
 
 async function init() {
     function noCompass() {
-        document.querySelector(".main_content").innerHTML =
-            `<h2>Kein Zugriff auf deinen Kompass</h2>
-             <p>Die Daten deines Kompass werden benötigt. Bist du auf einem mobilen Endgerät, das einen Kompass unterstützt?</p>
-            `
+        document.querySelector('#score').innerHTML = "Kein Zugriff auf deinen Kompass"
+        document.querySelector('#cityname').innerHTML =
+            "Die Daten deines Kompass werden benötigt. Bist du auf einem mobilen Endgerät, das einen Kompass unterstützt?"
+        document.querySelector('#permission_btn').remove()
     }
     if (DeviceMotionEvent.requestPermission !== undefined) { //Safari
         await DeviceMotionEvent.requestPermission().then(permissionState => {
@@ -104,6 +104,6 @@ function getRandomCity() {
 
 function getScore(city) {
     const factor = 1000
-    let distance = LatLon.destinationPoint(city.relDistance, playerOrientation).distanceTo(playerPosition)
+    let distance = playerPosition.destinationPoint(city.relDistance, playerOrientation).distanceTo(playerPosition)
     return 2 * factor - Math.round(factor * distance / city.relDistance)
 }
