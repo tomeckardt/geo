@@ -105,7 +105,7 @@ function getRandomCity() {
 }
 
 function getScore(city) {
-    const factor = 1000
-    let distance = playerPosition.destinationPoint(city.relDistance, playerOrientation).distanceTo(playerPosition)
+    const factor = 500
+    let distance = playerPosition.destinationPoint(city.relDistance * 1000, playerOrientation).distanceTo(LatLon.parse(city.latitude, city.longitude)) / 1000
     return 2 * factor - Math.round(factor * distance / city.relDistance)
 }

@@ -73,8 +73,12 @@ button:hover {
     margin: 10px;
 }
 
-@media(orientation: landscape) {
+@media(orientation: portrait) {
     html, body {
-        font-size: 1em;
+        font-size: 1.5em;
+    }
+    svg {
+        width: 200px;
+        height: 200px;
     }
 }
