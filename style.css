@@ -19,7 +19,9 @@ html, body {
 .header {
     background: #374785;
     display: flex;
+    flex-flow: column;
     justify-content: space-evenly;
+    padding-bottom: 15px;
 }
 
 .content .row.main_content {
@@ -63,6 +65,12 @@ button:hover {
 .citydata {
     color: slategray;
     font-size: 1em;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
 }
 
 @media(orientation: landscape) {

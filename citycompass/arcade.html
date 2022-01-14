@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0">
     <title>Städtekompass</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script type="module" src="compass.js"></script>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <script type="module" src="arcade.js"></script>
 </head>
 <body>
     <!-- Content -->
@@ -13,11 +13,13 @@
         <header class="row header">
             <h1>Städtekompass</h1>
             <div>
-                <a href="info.html">Info</a>
-                <a href="citycompass/arcade.html">Arcade</a>
+                <a href="../info.html">Info</a>
+                <a href="../index.html">Städtekompass</a>
             </div>
         </header>
         <div class="row main_content">
+            <h3 id="score" style="font-size: 2em">Score: 0</h3>
+            <p id="cityname"></p>
             <div id="btn_container">
                 <button id="permission_btn">Starten</button>
             </div>
