@@ -75,7 +75,8 @@ async function init() {
 function initGame() {
     let scoreText = document.querySelector('#score')
     scoreText.innerHTML = "Score: 0"
-    let button = document.querySelector('#permission_btn').show()
+    let button = document.querySelector('#permission_btn')
+    button.show()
     let cityText = document.querySelector('#cityname')
     let city = getRandomCity()
     cityText.innerHTML = city.asciiname
