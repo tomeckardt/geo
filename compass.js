@@ -72,7 +72,9 @@ async function init() {
                 update(360 - event.alpha)
             }
         }, true)
-        noCompass()
+        if (!window.ondeviceorientationabsolute) {
+            document.querySelector('.main_content').innerHTML = "Null"
+        }
     }
 }
 
