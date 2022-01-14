@@ -81,4 +81,8 @@ button:hover {
         width: 200px;
         height: 200px;
     }
+    .hrefrow {
+        display: flex;
+        justify-content: space-around;
+    }
 }

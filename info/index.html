@@ -1,0 +1,42 @@
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0">
+    <title>Informationen</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <script type="module" src="../compass.js"></script>
+</head>
+<body>
+    <style>
+        .href {
+            color: #F07167;
+            text-decoration: none;
+        }
+    </style>
+    <div class="content">
+        <header class="row header">
+            <h1>Informationen</h1>
+            <div>
+                <a href=".." class="link">Städtekompass</a>
+                <a href="../game" class="link">City Guesser</a>
+            </div>
+        </header>
+        <div class="row main_content" style="text-align: left; padding: 30px">
+            <h3>Woher hat die Seite die Städte und ihre Koordinaten?</h3>
+            <p>
+                Die Daten stammen im Wesentlichen von <a class="href" href="https://www.kaggle.com/i2i2i2/cities-of-the-world">hier</a>.
+                Nur Städte mit mehr als 300.000 Einwohnern sind hier enthalten. Die CSV wurde in JSON formatiert.
+            </p>
+            <h3>Warum sind hier teilweise Städte, von denen ich noch nie gehört habe, aber nicht Stadt XY, die viel mehr Einwohner hat?</h3>
+            <p>Ich beziehe die Daten aus dem oben genannten Datensatz. Es ist dort leider nicht jede Stadt enthalten.</p>
+            <h3>Wie funktioniert die Seite eigentlich?</h3>
+            <p>
+                Nach Erhalt der Geoposition wird von jeder Stadt im Datensatz die Distanz zum Nordpol und die Peilung der
+                Strecke vom Nutzer zu dieser Stadt berechnet.
+                Hierfür wird eine <a class="href" href="https://www.npmjs.com/package/geodesy">Library</a> verwendet.
+                Hat man diese Informationen, lässt sich alles sehr leicht umsetzen.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
